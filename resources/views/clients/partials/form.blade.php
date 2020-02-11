@@ -15,17 +15,20 @@
     {{ Form::text ('mail',null,['class' =>'form-control'])}}
 </div>
 <div class="form-group">
-    {{ Form::label('comercial','Comercial') }}
-    {{ Form::text ('comercial',null,['class' =>'form-control'])}}
+    {{ Form::label('comercial_id','Comercial') }}
+    {{Form::select('comercial_id',$comercials, null,['placeholder'=>'Seleccionar un Comercial'])}}
 </div>
 <div class="form-group">
     {{ Form::label('grupo','Grupo') }}
     {{ Form::text ('grupo',null,['class' =>'form-control'])}}
 </div>
 <div class="form-group">
-    {{ Form::label('empresa','Empresa') }}
-    {{ Form::text ('empresa',null,['class' =>'form-control'])}}
+    {{ Form::label('empresa_id','Empresa') }}
+    {{Form::select('empresa_id',$empresas, null, ['placeholder'=>'Seleccionar una Empresa'])}}
 </div>
+
 <div class="form-group">
     {{ Form::submit('Guardar',['class'=>'btn btn-sm btn-primary']) }}
 </div>
+
+

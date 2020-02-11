@@ -21,9 +21,7 @@ class CreateClientsTable extends Migration
             $table->string('calle')->nullable();
             $table->string('poblacion')->nullable();
             $table->string('mail')->nullable();
-            $table->string('comercial');
             $table->string('grupo')->nullable();
-            $table->string('empresa');
             $table->timestamps();
 
             $table->foreign('comercial_id')->references('id')->on('comercials')

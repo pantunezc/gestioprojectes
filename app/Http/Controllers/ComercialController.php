@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Client;
-use App\Comercial;
-use App\Empresa;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class ComercialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +13,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::paginate();
 
-        return view('clients.index', compact('clients'));
     }
 
     /**
@@ -28,9 +23,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        $comercials = Comercial::all()->pluck('nombre','id');
-        $empresas = Empresa::all()->pluck('nombre','id');
-        return view('clients.create', compact('comercials', 'empresas'));
+        
     }
 
     /**
@@ -41,11 +34,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $client = Client::create($request->all());
-
-
-        return redirect()->route('clients.index')
-            ->with('info', 'Cliente guardado con éxito');
+        
     }
 
     /**
@@ -54,9 +43,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show($id)
     {
-        return view('clients.show', compact('client'));
+        //
     }
 
     /**
@@ -65,11 +54,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit($id)
     {
-        $comercials = Comercial::all()->pluck('nombre','id');
-        $empresas = Empresa::all()->pluck('nombre','id');
-        return view('clients.edit', compact('client','comercials','empresas'));
+        //
     }
 
     /**
@@ -79,11 +66,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, $id)
     {
-        $client->update($request->all());
-        return redirect()->route('clients.edit',$client->id)
-        ->with('info','Cliente actualizado con éxito');
+        //
     }
 
     /**
@@ -92,9 +77,8 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy($id)
     {
-        $product->delete();
-        return back()->with('info','Eliminado correctamente');
+        //
     }
 }

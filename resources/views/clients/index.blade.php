@@ -25,9 +25,9 @@
                                 <th >Calle</th>
                                 <th>Poblacion</th>
                                 <th>E-mail</th>
-                                <th>Comercial</th>
                                 <th>Grupo</th>
                                 <th>Empresa</th>
+                                <th>Comercial</th>
                             </tr>
                         </thead>
                         <tbody >
@@ -38,12 +38,12 @@
                                     <td>{{ $client->calle }}</td>
                                     <td>{{ $client->poblacion }}</td>
                                     <td>{{ $client->mail }}</td>
-                                    <td>{{ $client->comercial }}</td>
                                     <td>{{ $client->grupo }}</td>
-                                    <td>{{ $client->empresa }}</td>
+                                    <td>{{ $client->empresa_id }}</td>
+                                    <td>{{ $client->comercial_id }}</td>
 
                                     <td>
-                                        <a href="#"
+                                        <a href="{{ route('clients.edit', $client->id) }}"
                                         class="btn btn-sm btn-outline-secondary">Editar</a>
                                     </td>
 

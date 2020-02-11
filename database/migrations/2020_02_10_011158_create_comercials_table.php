@@ -18,6 +18,7 @@ class CreateComercialsTable extends Migration
             $table->string('nombre');
             $table->string('telefono')->nullable();
             $table->timestamps();
+
         });
     }
 
