@@ -32,7 +32,7 @@
                         </thead>
                         <tbody >
                         @foreach($clients as $client)
-                                <tr>
+                                <tr class="table-tr" data-url="{{ route('clients.edit', $client->id) }}">
                                     <td>{{ $client->id }}</td>
                                     <td>{{ $client->nombre }}</td>
                                     <td>{{ $client->calle }}</td>
@@ -41,12 +41,12 @@
                                     <td>{{ $client->grupo }}</td>
                                     <td>{{ $client->empresa_id }}</td>
                                     <td>{{ $client->comercial_id }}</td>
-
-                                    <td>
-                                        <a href="{{ route('clients.edit', $client->id) }}"
-                                        class="btn btn-sm btn-outline-secondary">Editar</a>
+                                    <td  width="10px">
+                                        {!!Form::open(['route' =>['clients.destroy', $client->id],
+                                        'method'=> 'DELETE'])!!}
+                                            <button class="btn btn-sm btn-danger">Eliminar</button>
+                                        {!!Form::close()!!}
                                     </td>
-
                                 </tr>
 
                             @endforeach
@@ -59,3 +59,13 @@
     </div>
 </div>
 @endsection
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+  $('table').on("click", "tr.table-tr", function() {
+    window.location = $(this).data("url");
+  });
+});
+</script>

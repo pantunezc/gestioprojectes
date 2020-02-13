@@ -94,7 +94,7 @@ class ClientController extends Controller
      */
     public function destroy(Client $client)
     {
-        $product->delete();
+        $client->delete();
         return back()->with('info','Eliminado correctamente');
     }
 }
