@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"> Cliente </div>
+                <div class="card-header text-center">Nuevo Cliente </div>
                 <div class="card-body">
                 {{ Form::open(['route' => 'clients.store']) }}
 
